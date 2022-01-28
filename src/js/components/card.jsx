@@ -1,25 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./card.css";
 
-export const Card = () => {
+export const Card = (props) => {
   return (
     <div className="card">
       <img
-        src="https://via.placeholder.com/350x150"
+        src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`}
         className="card-img-top"
-        alt="..."
       />
 
       <div className="card-body">
-        <h5 className="card-title">Title</h5>
-        <p className="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
-          repudiandae!
-        </p>
+        <h5 className="card-title">{props.name}</h5>
+        <p className="card-text"></p>
 
         <div className="d-flex justify-content-between">
-          <a href="#" className="btn btn-outline-primary shadow-none">
+          <a href="#" className="btn btn-outline-dark shadow-none">
             Learn more!
           </a>
           <a href="#" className="btn btn-outline-warning shadow-none">
@@ -39,3 +36,8 @@ export const Card = () => {
     </div>
   );
 };
+
+Card.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string
+}

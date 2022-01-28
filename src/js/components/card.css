@@ -1,0 +1,16 @@
+.card {
+  min-width: 350px !important;
+  border: 1px solid #e7e7e7;
+  box-shadow: 4px 4px 4px 0px #ddddd7;
+}
+
+.card > img {
+  height: 250px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.card > img:hover {
+  opacity: 90%;
+  cursor: pointer;
+}

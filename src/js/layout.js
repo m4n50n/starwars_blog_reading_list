@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import injectContext from "./store/appContext";
 
 // Import Components
-import ScrollToTop from "./component/scrollToTop.jsx";
-import { Navbar } from "./component/navbar.jsx";
-import { Footer } from "./component/footer.jsx";
+import ScrollToTop from "./components/scrollToTop.jsx";
+import { Navbar } from "./components/navbar.jsx";
+import { Footer } from "./components/footer.jsx";
 
 // Import Views
 import { Home } from "./views/home.jsx";

@@ -1,0 +1,25 @@
+.navbar.fixed-top {
+  height: auto;
+  background-color: #303030;
+  box-shadow: 0px 3px 4px 0px #00000033;
+}
+
+.navbar.fixed-top input {
+    max-width: 200px;
+}
+
+.nav-link {
+  padding: 0;
+}
+
+.nav-link > span {
+  border-radius: 0.3rem !important;
+  padding: 0 6px;
+  background: #e7e7e7;
+  color: #000;
+}
+
+header > img {
+  max-height: 200px;
+  margin-top: 50px;
+}
