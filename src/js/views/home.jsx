@@ -6,23 +6,43 @@ import "../../styles/home.css";
 
 export const Home = () => {
   return (
-    <>
-    <h1>test</h1>
-    <h2>test</h2>
-    <h4>test</h4>
-    <h4>test</h4>
-    <h3>test</h3>
-    <h4>test</h4>
-    <h5>test</h5>
-    <h6>test</h6>
-    </>
-    /* <div className="container my-4">
-      <div className="row flex-wrap">
-		<div className="col-12 col-md-5"><Card /></div>
-		<div className="col-12 col-md-5"><Card /></div>
-		<div className="col-12 col-md-5"><Card /></div>
-		<div className="col-12 col-md-5"><Card /></div>		  
-	  </div>
-    </div> */
+    <main className="container">
+      <div className="row my-4">
+        <div className="col-12">
+          <h1>
+            <span>Characters</span>
+          </h1>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 d-flex gap-4 pb-3 overflow-auto">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
+      <div className="row my-5">
+        <div className="col-12">
+          <h1>
+            <span>Planets</span>
+          </h1>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 d-flex gap-4 pb-3 overflow-auto">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
+    </main>
   );
 };

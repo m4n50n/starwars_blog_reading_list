@@ -1,0 +1,5 @@
+.card {
+    min-width: 350px !important;
+    border: 1px solid #c3c3c3;
+    box-shadow: 4px 4px 0px 0px #dfdfdf;
+}

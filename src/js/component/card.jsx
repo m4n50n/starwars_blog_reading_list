@@ -1,10 +1,12 @@
 import React from "react";
 
+import "./card.css";
+
 export const Card = () => {
   return (
     <div className="card">
       <img
-        src="https://via.placeholder.com/400x200"
+        src="https://via.placeholder.com/350x150"
         className="card-img-top"
         alt="..."
       />
