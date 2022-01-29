@@ -8,7 +8,7 @@ const GetButtonBody = (type) => {
   const { store, actions } = useContext(Context); // This return the store and actions objects
 
   switch (type) {
-    case "favourites":
+    case "likes":
       return (
         <>
           <svg
@@ -22,10 +22,49 @@ const GetButtonBody = (type) => {
             <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
           </svg>
 
-          <span className="total-number">{store.favorites.length}</span>
+          <span className="total-number">{store.likes.length}</span>
+        </>
+      );
+    case "bookmarks":
+      return (
+        <>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-bookmark-check-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+          </svg>
+
+          <span className="total-number">{store.bookmarks.length}</span>
         </>
       );
   }
+};
+
+const GetButtonDropDown = (type) => {
+  const { store, actions } = useContext(Context); // This return the store and actions objects
+  const StoreValue =
+    type === "likes"
+      ? store.likes
+      : type === "bookmarks"
+      ? store.bookmarks
+      : null;
+
+  return (
+    <ul className="dropdown-menu">
+      {StoreValue.map((CharacterIndex, ArrayIndex) => (
+        <li key={ArrayIndex}>
+          <a className="dropdown-item" href="">
+            {store.characters[CharacterIndex - 1].name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export const CounterButton = (props) => {
@@ -39,23 +78,7 @@ export const CounterButton = (props) => {
         {GetButtonBody(props.type)}
       </button>
 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="dropdown-item" href="#">
-            Action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Something else here
-          </a>
-        </li>
-      </ul>
+      {GetButtonDropDown(props.type)}
     </div>
   );
 };

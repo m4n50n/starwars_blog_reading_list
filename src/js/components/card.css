@@ -64,13 +64,29 @@
   line-break: auto;
 }
 
-.favorite {
-  background-color: #ffc107;
+.like,
+.like > svg,
+.bookmark,
+.bookmark > svg {
   color: #303030;
 }
 
-.favorite > svg {
-  color: #303030;
+.like {
+  background-color: #ffc107;
+}
+
+.btn-green {
+  border-color: #84ee6a;
+  color: #84ee6a;
+}
+
+.btn-green:hover {
+  background-color: #84ee6a;
+  border-color: #84ee6a;
+}
+
+.bookmark {
+  background-color: #84ee6a;
 }
 
 /* -- MEDIA QUERIES -- */
@@ -105,7 +121,7 @@
     background-image: url(https://static-mh.content.disney.io/starwars/assets/shared/decal-a67af2e7d567.png);
     background-size: 300%;
     background-repeat: no-repeat;
-    right: 25%;
+    left: 25%;
     bottom: 0px;
   }
 }

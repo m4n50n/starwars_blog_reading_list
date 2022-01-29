@@ -1,6 +1,6 @@
 # ![4Geeks Logo](http://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=4geeks,16) Starwars Blog Reading List
 
-✏ *Building a minimalist version of the [Star Wars Databank](https://www.starwars.com/databank) with a ***Read Later*** or ***Favorites*** list functionality. Inspired in **./preview.gif***.
+✏ *Building a minimalist version of the [Star Wars Databank](https://www.starwars.com/databank) with a ***Read Later*** or ***likes*** list functionality. Inspired in **./preview.gif***.
 
 ## Preview 🎬
 * You can open this repository in **Gitpod**.

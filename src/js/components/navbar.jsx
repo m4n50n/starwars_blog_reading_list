@@ -9,7 +9,8 @@ export const Navbar = () => {
     <>
       <nav className="navbar flex-column flex-md-row fixed-top justify-content-between align-items-center px-1 px-md-4 gap-2">
         <div className="d-flex gap-2 order-3 order-md-1">
-          <CounterButton type="favourites" />
+          <CounterButton type="likes" />
+          <CounterButton type="bookmarks" />
         </div>
 
         <h1 className="my-0 text-white order-1 order-md-2">

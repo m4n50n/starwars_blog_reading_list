@@ -3,18 +3,21 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       loading: true,
       characters: [],
-      favorites: []
+      likes: [],
+      bookmarks: []
     },
     actions: {
       InsertCharacters: (data) => {
         const store = getStore();
         setStore({ ...store, characters: data.results });
       },
-      SetFavorite: (CharacterIndex) => {
+      SaveCharacter: (CharacterIndex, type) => {
         const store = getStore();        
-        const CheckIndex = store.favorites.indexOf(CharacterIndex);
+        const StoreValue = type === "like" ? store.likes : type === "bookmark" ? store.bookmarks : null;
 
-        CheckIndex !== -1 ? store.favorites.splice(CheckIndex, 1) : store.favorites.push(CharacterIndex);
+        const CheckIndex = StoreValue.indexOf(CharacterIndex);
+
+        CheckIndex !== -1 ? StoreValue.splice(CheckIndex, 1) : StoreValue.push(CharacterIndex);
         setStore({ ...store });
       },
     },
