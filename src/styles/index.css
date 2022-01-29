@@ -17,8 +17,10 @@ h1 {
   letter-spacing: 6px;
   text-align: center;
   margin: 0;
+}
+
+h1.section-title {
   background: linear-gradient(#0000 0%, #0000 49%, #000 50%, #000 51%, #0000 52%, #0000 100%);
-  white-space: nowrap;
 }
 
 h1 > span {

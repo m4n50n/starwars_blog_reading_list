@@ -2,39 +2,27 @@ import React from "react";
 
 import "./navbar.css";
 import Logo from "../../img/app/main-logo.png";
+import { CounterButton } from "../components/counter-button.jsx";
 
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar fixed-top justify-content-between align-items-center px-3 px-md-5">
-        <ul className="navbar-nav flex-row align-items-center gap-3">
-          <li className="nav-item">
-            <a
-              className="nav-link btn btn-sm btn-secondary text-white p-1 shadow-none"
-              href="#"
-            >
-              Favourites <span>3</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link btn btn-sm btn-secondary text-white p-1 shadow-none"
-              href="#"
-            >
-              Pending <span>6</span>
-            </a>
-          </li>
-        </ul>
+      <nav className="navbar flex-column flex-md-row fixed-top justify-content-between align-items-center px-1 px-md-4 gap-2">
+        <div className="d-flex gap-2 order-3 order-md-1">
+          <CounterButton type="favourites" />
+        </div>
 
-        <h1 className="m-0 text-white text-decoration-line-through">SWAPI.TECH T35T</h1>
+        <h1 className="my-0 text-white order-1 order-md-2">
+          SWAPI.TECH T35T
+        </h1>
 
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center order-2 order-md-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
+            width="25"
+            height="25"
             fill="currentColor"
-            className="bi bi-search text-white me-3"
+            className="bi bi-search text-white me-2"
             viewBox="0 0 16 16"
           >
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -42,7 +30,7 @@ export const Navbar = () => {
 
           <input
             type="search"
-            className="form-control form-control-sm shadow-none"
+            className="form-control form-control-sm shadow-none search-input"
             placeholder="Search something ..."
           />
         </div>
@@ -54,51 +42,3 @@ export const Navbar = () => {
     </>
   );
 };
-
-/* export const aNavbar = () => {
-  return (
-    <header className="navbar navbar-expand-lg navbar-dark py-4">
-      <div className="container-fluid justify-content-end">
-        <a className="navbar-brand py-2" href="#">
-          <img src={Logo} alt="Star Wars Logo" />
-        </a>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle btn btn-secondary text-white px-2 shadow-none"
-                href="#"
-                id="navbarDropdown"
-                data-bs-toggle="dropdown"
-              >
-                Favorites <span className="rounded-3 p-1 mx-2 bg-dark">99</span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        <button
-          className="navbar-toggler border-secondary shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </header>
-  );
-}; */

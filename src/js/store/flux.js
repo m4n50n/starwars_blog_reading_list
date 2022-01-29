@@ -1,25 +1,21 @@
-import { ApiGetCharacters } from "../service/api-requests";
-
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       loading: true,
       characters: [],
-      favorites: [],
+      favorites: []
     },
     actions: {
-      GetCharacters: () => {
+      InsertCharacters: (data) => {
         const store = getStore();
-        store.loading = true;
+        setStore({ ...store, characters: data.results });
+      },
+      SetFavorite: (CharacterIndex) => {
+        const store = getStore();        
+        const CheckIndex = store.favorites.indexOf(CharacterIndex);
 
-        ApiGetCharacters()
-          .then((response) => response.json())
-          .then((data) => {            
-            setStore({...store, characters: data.results});
-            console.log(getStore());
-          })
-          .catch((error) => console.error("Error!!!: ", error))
-          .finally(store.loading = false);
+        CheckIndex !== -1 ? store.favorites.splice(CheckIndex, 1) : store.favorites.push(CharacterIndex);
+        setStore({ ...store });
       },
     },
   };

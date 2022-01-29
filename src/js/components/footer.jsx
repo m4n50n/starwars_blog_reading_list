@@ -1,7 +1,8 @@
 import React from "react";
+import "./footer.css";
 
 export const Footer = () => (
-  <footer className="mt-auto py-1 bg-black text-center">
+  <footer className="mt-auto py-1 text-center">
     <a
       className="text-decoration-none text-white"
       href="https://github.com/m4n50n"
