@@ -44,10 +44,11 @@ export const Home = () => {
       </div>
 
       <div className="row justify-content-center gap-2 mx-2 mx-md-0 mb-5 cards-row overflow-auto">
-        {store.characters.map((CharacterInfo) => (
+        {store.characters.map((CharacterInfo, CharactersArrayIndex) => (
           <Card
-            key={CharacterInfo.uid}
-            id={CharacterInfo.uid}
+            key={CharactersArrayIndex}
+            id={CharactersArrayIndex}
+            uid={CharacterInfo.uid}
             name={CharacterInfo.name}
           />
         ))}

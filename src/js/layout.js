@@ -21,7 +21,7 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
+				{/* <ScrollToTop> */}
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
@@ -38,7 +38,7 @@ const Layout = () => {
 						</Route>
 					</Switch>
 					<Footer />
-				</ScrollToTop>
+				{/* </ScrollToTop> */}
 			</BrowserRouter>
 		</div>
 	);

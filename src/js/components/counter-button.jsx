@@ -13,8 +13,8 @@ const GetButtonBody = (type) => {
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="17"
+            height="17"
             fill="currentColor"
             className="bi bi-heart-fill"
             viewBox="0 0 16 16"
@@ -30,8 +30,8 @@ const GetButtonBody = (type) => {
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="19"
+            height="19"
             fill="currentColor"
             className="bi bi-bookmark-check-fill"
             viewBox="0 0 16 16"
@@ -55,14 +55,24 @@ const GetButtonDropDown = (type) => {
       : null;
 
   return (
-    <ul className="dropdown-menu">
-      {StoreValue.map((CharacterIndex, ArrayIndex) => (
-        <li key={ArrayIndex}>
-          <a className="dropdown-item" href="">
-            {store.characters[CharacterIndex - 1].name}
+    <ul className="counter-menu dropdown-menu">
+      {StoreValue.length === 0 ? (
+        <li>
+          <a className="dropdown-item text-muted disabled" href="#">
+            Nothing here
           </a>
         </li>
-      ))}
+      ) : (
+        StoreValue.map((CharacterInfo, CharactersArrayIndex) => {
+          return (
+            <li key={CharactersArrayIndex}>
+              <a className="dropdown-item" href="#">
+                {store.characters[CharacterInfo].name}
+              </a>
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 };
@@ -72,7 +82,7 @@ export const CounterButton = (props) => {
     <div className="dropdown">
       <button
         type="button"
-        className="d-flex align-items-center gap-2 btn btn-sm btn-secondary dropdown-toggle shadow-none"
+        className="counter-button d-flex align-items-center gap-2 btn btn-sm btn-secondary dropdown-toggle shadow-none"
         data-bs-toggle="dropdown"
       >
         {GetButtonBody(props.type)}

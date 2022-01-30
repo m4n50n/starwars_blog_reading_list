@@ -12,22 +12,18 @@ export const Card = (props) => {
       <div
         className="img-container"
         style={{
-          backgroundImage: `url("https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg")`,
+          backgroundImage: `url("https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg")`,
         }}
       >
         <img
-          src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`}
           className="card-img-top"
         />
       </div>
 
       <i
         className="zoom fas fa-lg fa-search-plus"
-        onClick={(e) =>
-          console.log(
-            e.target.parentNode.firstChild.firstChild.classList.add("zoomed")
-          )
-        }
+        onClick={(e) => e.target.parentNode.firstChild.firstChild.classList.add("zoomed")}
       ></i>
 
       <div className="card-body d-flex justify-content-between align-items-center p-2">
@@ -44,8 +40,8 @@ export const Card = (props) => {
             {store.bookmarks.indexOf(props.id) !== -1 ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="23"
+                height="23"
                 fill="currentColor"
                 className="bi bi-bookmark-check-fill"
                 viewBox="0 0 16 16"
@@ -55,8 +51,8 @@ export const Card = (props) => {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="23"
+                height="23"
                 fill="currentColor"
                 className="bi bi-bookmark"
                 viewBox="0 0 16 16"
@@ -104,6 +100,7 @@ export const Card = (props) => {
 };
 
 Card.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
+  uid: PropTypes.string,
   name: PropTypes.string,
 };

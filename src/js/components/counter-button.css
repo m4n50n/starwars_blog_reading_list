@@ -1,3 +1,13 @@
+.counter-button {
+  min-width: 5.5rem;
+}
+
+.counter-menu {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+}
+
 .total-number {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }

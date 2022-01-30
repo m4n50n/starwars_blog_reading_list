@@ -10,6 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       InsertCharacters: (data) => {
         const store = getStore();
         setStore({ ...store, characters: data.results });
+        console.log(getStore());
       },
       SaveCharacter: (CharacterIndex, type) => {
         const store = getStore();        
