@@ -17,6 +17,7 @@ export const Home = () => {
   useEffect(() => GetCharacters(), []);
 
   const GetCharacters = () => {
+    console.log(store);
     ApiGetCharacters()
       .then((response) => response.json())
       .then((data) => actions.InsertCharacters(data))

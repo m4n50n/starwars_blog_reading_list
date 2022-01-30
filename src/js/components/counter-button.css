@@ -20,6 +20,11 @@
   gap: 1.2rem;
 }
 
+.counter-menu a:active {
+  color: #1e2125;
+  background-color: #e9ecef;
+}
+
 .counter-menu a i {
   color: #808080b4;
 }

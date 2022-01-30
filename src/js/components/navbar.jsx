@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 import "./navbar.css";
 import Logo from "../../img/app/main-logo.png";
 import { CounterButton } from "../components/counter-button.jsx";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+  const [SearchValue, setSearchValue] = useState("");
+
   return (
     <>
       <nav className="navbar flex-column flex-md-row fixed-top justify-content-between align-items-center px-1 px-md-4 gap-2">
@@ -36,7 +40,14 @@ export const Navbar = () => {
           <input
             type="search"
             className="form-control form-control-sm shadow-none search-input"
-            placeholder="Search something ..."
+            placeholder="Search character ..."
+            onChange={(e) => setSearchValue(e.target.value.trim())}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && SearchValue.length !== 0) {
+                store.searching = SearchValue;
+                // https://stackoverflow.com/questions/67806599/react-how-to-change-route-on-onchange-event-of-input
+              }
+            }}
           />
         </div>
       </nav>
