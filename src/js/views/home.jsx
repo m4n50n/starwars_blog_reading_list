@@ -17,12 +17,10 @@ export const Home = () => {
   useEffect(() => GetCharacters(), []);
 
   const GetCharacters = () => {
-    store.loading = true;
-
     ApiGetCharacters()
       .then((response) => response.json())
       .then((data) => actions.InsertCharacters(data))
-      .catch((error) => console.error("Error!!!: ", error))
+      .catch((error) => console.error("ApiGetCharacters() -> Error!!!: ", error))
       .finally((store.loading = false));
   };
 

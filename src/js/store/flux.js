@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       loading: true,
       characters: [],
+      characters_info: [],
       likes: [],
       bookmarks: []
     },
@@ -10,11 +11,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       InsertCharacters: (data) => {
         const store = getStore();
         setStore({ ...store, characters: data.results });
-        console.log(getStore());
+      },
+      InsertCharacterInfo: (data) => {
+        const store = getStore();
+        setStore({ ...store, characters_info: {[data.result.uid]: data.result} });
       },
       SaveCharacter: (CharacterIndex, type) => {
         const store = getStore();        
-        const StoreValue = type === "like" ? store.likes : type === "bookmark" ? store.bookmarks : null;
+        const StoreValue = type === "likes" ? store.likes : type === "bookmarks" ? store.bookmarks : null;
 
         const CheckIndex = StoreValue.indexOf(CharacterIndex);
 

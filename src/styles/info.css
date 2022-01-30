@@ -1,0 +1,19 @@
+.description-image {
+  max-width: 100%;
+}
+
+.description-title {
+  font-family: "Poppins", sans-serif;
+}
+
+.description-details > li {
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  line-break: anywhere;
+  white-space: normal;
+}
+
+.description-details > li > span {
+  margin-right: 6px;
+  font-weight: 600;
+}

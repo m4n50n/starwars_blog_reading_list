@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
@@ -23,11 +24,17 @@ export const Card = (props) => {
 
       <i
         className="zoom fas fa-lg fa-search-plus"
-        onClick={(e) => e.target.parentNode.firstChild.firstChild.classList.add("zoomed")}
+        onClick={(e) =>
+          e.target.parentNode.firstChild.firstChild.classList.add("zoomed")
+        }
       ></i>
 
-      <div className="card-body d-flex justify-content-between align-items-center p-2">
-        <h5 className="card-title m-0 pe-1">{props.name}</h5>
+      <div className="card-body d-flex justify-content-between align-items-center px-2 py-1">
+        <h5 className="card-title m-0 pe-1">
+          <Link to={`/info/${props.uid}`} className="text-white text-decoration-none">
+            {props.name}
+          </Link>
+        </h5>
 
         <div className="d-flex align-items-center gap-2">
           <a
@@ -35,7 +42,7 @@ export const Card = (props) => {
             className={`btn btn-sm btn-outline-warning btn-green shadow-none ${
               store.bookmarks.indexOf(props.id) !== -1 ? "bookmark" : ""
             }`}
-            onClick={() => actions.SaveCharacter(props.id, "bookmark")}
+            onClick={() => actions.SaveCharacter(props.id, "bookmarks")}
           >
             {store.bookmarks.indexOf(props.id) !== -1 ? (
               <svg
@@ -67,7 +74,7 @@ export const Card = (props) => {
             className={`btn btn-sm btn-outline-warning shadow-none ${
               store.likes.indexOf(props.id) !== -1 ? "like" : ""
             }`}
-            onClick={() => actions.SaveCharacter(props.id, "like")}
+            onClick={() => actions.SaveCharacter(props.id, "likes")}
           >
             {store.likes.indexOf(props.id) !== -1 ? (
               <svg

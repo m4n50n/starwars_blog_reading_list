@@ -9,18 +9,18 @@
 }
 
 .search-input {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   border: 0;
 }
 
-header > img {
+header > a > img {
   max-height: 200px;
   margin-top: 10rem;
 }
 
 @media (min-width: 768px) {
-  header > img {
+  header > a > img {
     max-height: 200px;
     margin-top: 4rem;
   }

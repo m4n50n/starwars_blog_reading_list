@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./navbar.css";
 import Logo from "../../img/app/main-logo.png";
@@ -13,7 +14,11 @@ export const Navbar = () => {
           <CounterButton type="bookmarks" />
         </div>
 
-        <h1 className="my-0 text-white order-1 order-md-2">SWAPI.TECH T35T</h1>
+        <h1 className="my-0 order-1 order-md-2">
+          <Link to="/" className="text-white text-decoration-none">
+            SWAPI.TECH T35T
+          </Link>
+        </h1>
 
         <div className="input-group w-auto order-2 order-md-3">
           <span className="input-group-text px-2 bg-white border-0">
@@ -37,7 +42,9 @@ export const Navbar = () => {
       </nav>
 
       <header className="d-flex justify-content-center py-3">
-        <img className="img-fluid" src={Logo} alt="Starwars Logo" />
+        <Link to="/">
+          <img className="img-fluid" src={Logo} alt="Starwars Logo" />
+        </Link>
       </header>
     </>
   );

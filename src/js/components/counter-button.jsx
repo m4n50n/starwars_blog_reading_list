@@ -68,6 +68,11 @@ const GetButtonDropDown = (type) => {
             <li key={CharactersArrayIndex}>
               <a className="dropdown-item" href="#">
                 {store.characters[CharacterInfo].name}
+
+                <i
+                  className="fas fa-times"
+                  onClick={() => actions.SaveCharacter(CharacterInfo, type)}
+                ></i>
               </a>
             </li>
           );
