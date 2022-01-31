@@ -9,11 +9,10 @@ export const Navbar = () => {
   const [SearchValue, setSearchValue] = useState("");
   
   const GetSearchResults = () => {
-    return <ul className={`search-results rounded-3`}>
-      <li>ok</li>
-      <li>ok</li>
-      <li>ok</li>
-      <li>ok</li>
+    return <ul className={`search-results list-group rounded-3`}>
+      <li className="list-group-item">Search result N1</li>
+      <li className="list-group-item">Search result N2</li>
+      <li className="list-group-item">Search result N3</li>
     </ul>;
   }
 
@@ -30,7 +29,7 @@ export const Navbar = () => {
 
         <h1 className="my-0 order-1 order-md-2">
           <Link to="/" className="text-white text-decoration-none">
-            SWAPI.TECH
+            API-TEST SITE
           </Link>
         </h1>
 
