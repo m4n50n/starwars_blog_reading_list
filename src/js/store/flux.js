@@ -5,8 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       characters: [],
       characters_info: [],
       likes: [],
-      bookmarks: [],
-      searching: false
+      bookmarks: []
     },
     actions: {
       InsertCharacters: (data) => {

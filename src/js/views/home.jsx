@@ -25,12 +25,12 @@ export const Home = () => {
       .finally((store.loading = false));
   };
 
-  window.addEventListener("mouseup", () => {
-    // "Remove zoomed image"
+  // Hide zoomed image
+  window.addEventListener("mouseup", () =>
     document.querySelector(".zoomed")
       ? document.querySelector(".zoomed").classList.remove("zoomed")
-      : null;
-  });
+      : null
+  );
 
   return (
     <main className="container-fluid container-lg">

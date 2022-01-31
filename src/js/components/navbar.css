@@ -14,14 +14,41 @@
   border: 0;
 }
 
+.search-results {
+  display: none;
+  position: absolute;
+  top: 88px;
+  width: 100%;
+  max-width: 227px;
+  max-height: 150px;
+  padding: 0;
+  background-color: white;
+  overflow: auto;
+  list-style: none;
+  box-shadow: 0px 4px 6px -2px rgb(186 179 186);
+}
+
+.search-results li {
+  color: #000 !important;
+  padding: 2px 2px 2px 5px;
+  margin-bottom: 0px !important;
+  list-style: none !important;
+}
+
 header > a > img {
   max-height: 200px;
   margin-top: 10rem;
 }
 
+/* -- MEDIA QUERIES -- */
+/* Md resolutions */
 @media (min-width: 768px) {
   header > a > img {
     max-height: 200px;
     margin-top: 4rem;
+  }
+
+  .search-results {
+    top: 45px;
   }
 }
