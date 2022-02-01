@@ -40,9 +40,10 @@ const injectContext = PassedComponent => {
 			<Context.Provider value={state}>
 				<PassedComponent {...props} />
 			</Context.Provider>
-		);
-	};
+		)
+	}
+
 	return StoreWrapper;
-};
+}
 
 export default injectContext;

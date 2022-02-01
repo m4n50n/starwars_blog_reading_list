@@ -2,32 +2,30 @@ import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-// Import Components
-import { Spinner } from "../components/spinner.jsx";
+// Components
+import { Spinner } from "../component/Spinner/spinner.jsx";
 
-// Import Styles
+// Styles
 import "../../styles/info.css";
 
-// Import Functions
+// Functions
 import { ApiGetCharacterInfo } from "../service/api-requests";
 
-export const Info = () => {
-  const { store, actions } = useContext(Context); // This return the store and actions objects
+const Info = () => {
+  const { store, actions } = useContext(Context);
   const params = useParams();
   const CharacterUID = params.uid;
 
   useEffect(() => GetCharacterInfo(), []);
 
   const GetCharacterInfo = () => {
-    store.loading = true;
-
     ApiGetCharacterInfo(CharacterUID)
       .then((response) => response.json())
       .then((data) => actions.InsertCharacterInfo(data))
       .catch((error) =>
         console.error("ApiGetCharacterInfo() -> Error!!!: ", error)
       )
-      .finally((store.loading = false));
+      .finally();
   };
 
   return typeof store.characters_info[CharacterUID] === "undefined" ? ( // The component is rendered the first time before the request ends
@@ -98,7 +96,9 @@ export const Info = () => {
         </div>
       </div>
 
-      {store.loading ? <Spinner /> : null}
+      <Spinner />
     </main>
-  );
-};
+  )
+}
+
+export default Info;

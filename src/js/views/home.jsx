@@ -1,18 +1,18 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 
-// Import Components
-import { Card } from "../components/card.jsx";
-import { Spinner } from "../components/spinner.jsx";
+// Components
+import { Card } from "../component/Card/card.jsx";
+import { Spinner } from "../component/Spinner/spinner.jsx";
 
-// Import Styles
+// Styles
 import "../../styles/home.css";
 
-// Import Functions
+// Functions
 import { ApiGetCharacters } from "../service/api-requests";
 
-export const Home = () => {
-  const { store, actions } = useContext(Context); // This return the store and actions objects
+const Home = () => {
+  const { store, actions } = useContext(Context);
 
   useEffect(() => GetCharacters(), []);
 
@@ -22,7 +22,7 @@ export const Home = () => {
       .then((response) => response.json())
       .then((data) => actions.InsertCharacters(data))
       .catch((error) => console.error("ApiGetCharacters() -> Error!!!: ", error))
-      .finally((store.loading = false));
+      .finally();
   };
 
   // Hide zoomed image
@@ -53,7 +53,9 @@ export const Home = () => {
         ))}
       </div>
 
-      {store.loading ? <Spinner /> : null}
+      {/* <Spinner /> */}
     </main>
-  );
-};
+  )
+}
+
+export default Home;

@@ -52,6 +52,10 @@
 }
 
 .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
   background-color: #303030;  
   background: repeating-linear-gradient( -45deg, #393939, #393939 12px, #303030 12px, #303030 50px );
 }

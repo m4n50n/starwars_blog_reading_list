@@ -1,7 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      loading: true,
       characters: [],
       characters_info: [],
       likes: [],
@@ -18,15 +17,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       SaveCharacter: (CharacterIndex, type) => {
         const store = getStore();        
-        const StoreValue = type === "likes" ? store.likes : type === "bookmarks" ? store.bookmarks : null;
+        
+        const CheckIndex = store[[type]].indexOf(CharacterIndex);
 
-        const CheckIndex = StoreValue.indexOf(CharacterIndex);
-
-        CheckIndex !== -1 ? StoreValue.splice(CheckIndex, 1) : StoreValue.push(CharacterIndex);
+        CheckIndex !== -1 ? store[[type]].splice(CheckIndex, 1) : store[[type]].push(CharacterIndex);
         setStore({ ...store });
       },
     },
-  };
-};
+  }
+}
 
 export default getState;
