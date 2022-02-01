@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
 // Components
-import { Card } from "../component/Card/card.jsx";
-import { Spinner } from "../component/Spinner/spinner.jsx";
+import { Card } from "../../component/Card/card.jsx";
+import { Spinner } from "../../component/Spinner/spinner.jsx";
 
 // Styles
-import "../../styles/home.css";
+import "./home.css";
 
 // Functions
-import { ApiGetCharacters } from "../service/api-requests";
+import { ApiGetCharacters } from "../../service/api-requests";
 
 const Home = () => {
   const { store, actions } = useContext(Context);

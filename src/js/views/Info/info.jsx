@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
 // Components
-import { Spinner } from "../component/Spinner/spinner.jsx";
+import { Spinner } from "../../component/Spinner/spinner.jsx";
 
 // Styles
-import "../../styles/info.css";
+import "./info.css";
 
 // Functions
-import { ApiGetCharacterInfo } from "../service/api-requests";
+import { ApiGetCharacterInfo } from "../../service/api-requests";
 
 const Info = () => {
   const { store, actions } = useContext(Context);
