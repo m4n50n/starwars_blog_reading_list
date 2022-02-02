@@ -67,7 +67,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #fff;
-  line-break: auto;
+  line-break: anywhere;
 }
 
 .card-title:hover {
@@ -75,40 +75,7 @@
   transform: scale(1.02);
 }
 
-.like,
-.like > svg,
-.bookmark,
-.bookmark > svg {
-  color: #303030;
-}
-
-.like {
-  background-color: #ffc107;
-}
-
-.btn-green {
-  border-color: #84ee6a;
-  color: #84ee6a;
-  border: 0;
-}
-
-.btn-green:hover {
-  background-color: #84ee6a;
-  border-color: #84ee6a;
-}
-
-.bookmark {
-  background-color: #84ee6a;
-}
-
 /* -- MEDIA QUERIES -- */
-/* Lg resolutions */
-@media (min-width: 992px) {
-  .card {
-    max-width: calc(25% - 0.5rem); /* 4 * 25% = 100;  0.5 = row gap */
-  }
-}
-
 /* Md resolutions */
 @media (min-width: 768px) {
   .card {
@@ -126,5 +93,12 @@
 
   .card-body {
     border-top: 2px solid #e7e7e7;
+  }
+}
+
+/* Lg resolutions */
+@media (min-width: 992px) {
+  .card {
+    max-width: calc(25% - 0.5rem); /* 4 * 25% = 100;  0.5 = row gap */
   }
 }

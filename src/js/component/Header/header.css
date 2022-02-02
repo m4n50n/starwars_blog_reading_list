@@ -38,8 +38,12 @@
   border: 1px solid #00000020;
 }
 
-.search-results li a {
+.search-results a {
   color: #212529;
+}
+
+.search-results li:hover {
+  background: #f2f2f2;
 }
 
 .img-logo {

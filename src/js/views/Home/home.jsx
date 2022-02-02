@@ -5,9 +5,6 @@ import { Context } from "../../store/appContext";
 import { Card } from "../../component/Card/card.jsx";
 import { Spinner } from "../../component/Spinner/spinner.jsx";
 
-// Styles
-import "./home.css";
-
 // Functions
 import { ApiGetCharacters } from "../../service/api-requests";
 
@@ -15,12 +12,11 @@ const Home = () => {
   const { store, actions } = useContext(Context);
   const [Loading, setLoading] = useState(true);
 
-  const GetCharacters = async () => {
+  const GetCharacters = async (url = false) => {
     try {
       setLoading(true);
-      const response = await ApiGetCharacters();
+      const response = await ApiGetCharacters(url);
       const data = await response.json();
-      console.log(data);
       actions.InsertCharacters(data);
     }
     catch (error) {
@@ -50,37 +46,27 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="cards-row-pagination">
-        <button 
-          type="button" 
-          className={`btn btn-dark shadow-sm ${!store.characters.previous ? "invisible" : ""}`}
-          onClick={() => console.log("test")}
-        >
-          <i className="fas fa-angle-left me-2"></i> Previous
-        </button>
-
-        <button 
-          type="button" 
-          className="btn btn-dark shadow-sm"
-          onClick={() => console.log("test")}
-        >
-          Next <i className="fas fa-angle-right ms-2"></i>
-        </button>
-      </div>
-
-      <div className="cards-row row justify-content-center gap-2 mx-0 mb-5">
+      <div className="cards-row row justify-content-center gap-2 mx-0">
         {
           Loading ? <Spinner />
             :
-            store.characters.results.map((CharacterInfo, CharactersArrayIndex) => (
+            store.characters.map((CharacterInfo, ArrayIndex) => (
               <Card
-                key={CharactersArrayIndex}
-                id={CharactersArrayIndex}
-                uid={CharacterInfo.uid}
-                name={CharacterInfo.name}
+                key={ArrayIndex}
+                id={ArrayIndex}
               />
             ))
         }
+      </div>
+
+      <div className="text-center my-4">
+        <button
+          type="button"
+          className={`btn btn-dark shadow-sm ${!store.next_page ? "invisible" : ""}`}
+          onClick={() => GetCharacters(store.next_page)}
+        >
+          Show More <i className="fas fa-long-arrow-alt-down ms-1"></i>
+        </button>
       </div>
     </main>
   )

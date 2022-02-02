@@ -13,22 +13,22 @@ const GetButtonElements = (type) => {
     <ul className="counter-menu dropdown-menu p-0">
       {store[[type]].length === 0 ? (
         <li>
-          <a className="dropdown-item text-muted disabled" href="#">
+          <button className="dropdown-item text-muted disabled" href="#">
             Nothing here
-          </a>
+          </button>
         </li>
       ) : (
         store[[type]].map((CharacterInfo, CharactersArrayIndex) => {
           return (
             <li key={CharactersArrayIndex}>
-              <a className="dropdown-item" href="#">
+              <button className="dropdown-item" href="#">
                 {store.characters[CharacterInfo].name}
 
                 <i
                   className="remove-dropdown-element fas fa-times"
                   onClick={() => actions.SaveCharacter(CharacterInfo, type)}
                 ></i>
-              </a>
+              </button>
             </li>
           )
         })

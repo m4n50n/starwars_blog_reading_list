@@ -1,0 +1,25 @@
+.like,
+.like > svg,
+.bookmark,
+.bookmark > svg {
+  color: #303030;
+}
+
+.like {
+  background-color: #ffc107;
+}
+
+.btn-green {
+  border-color: #84ee6a;
+  color: #84ee6a;
+  border: 0;
+}
+
+.btn-green:hover {
+  background-color: #84ee6a;
+  border-color: #84ee6a;
+}
+
+.bookmark {
+  background-color: #84ee6a;
+}

@@ -18,13 +18,13 @@ const AppRouter = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
+				{/* <ScrollToTop> */}
 					<Layout>
 						<Switch>
 							<Route exact path="/">
 								<Home />
 							</Route>
-							<Route exact path="/info/:uid">
+							<Route exact path="/info/:id">
 								<Info />
 							</Route>
 							<Route>
@@ -32,7 +32,7 @@ const AppRouter = () => {
 							</Route>
 						</Switch>
 					</Layout>
-				</ScrollToTop>
+				{/* </ScrollToTop> */}
 			</BrowserRouter>
 		</div>
 	)

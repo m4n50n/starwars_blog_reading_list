@@ -7,7 +7,7 @@
   font-size: 1rem;
 }
 
-.counter-menu a {
+.counter-menu button {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   gap: 1.2rem;
 }
 
-.counter-menu a:active {
+.counter-menu button:active {
   color: #1e2125;
   background-color: #e9ecef;
 }

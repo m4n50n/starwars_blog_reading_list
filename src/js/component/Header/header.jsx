@@ -20,15 +20,15 @@ export const Header = () => {
 
   const GetSearchResults = async () => {
     try {
-      setActiveSearch(true);
       const response = await ApiSearchCharacters(SearchValue);
       const data = await response.json();
+      setActiveSearch(true);
       setSearchResults(data.result);
     }
     catch (error) {
       console.error("GetSearchResults() -> Error!!!: ", error);
     }
-    finally {}
+    finally { }
   }
 
   // Hide search results
@@ -79,11 +79,11 @@ export const Header = () => {
               SearchResults.length === 0
                 ? <li>Nothing found</li>
                 : Object.values(SearchResults).map((Result, ResultIndex) =>
-                  <li key={ResultIndex}>
-                    <Link to={`/info/${Result.uid}`} className="text-decoration-none">
+                  <Link key={ResultIndex} to={`/info/${Result.id}`} className="text-decoration-none">
+                    <li>
                       {Result.properties.name}
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 )
             }
           </ul>
