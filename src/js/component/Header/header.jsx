@@ -79,7 +79,7 @@ export const Header = () => {
               SearchResults.length === 0
                 ? <li>Nothing found</li>
                 : Object.values(SearchResults).map((Result, ResultIndex) =>
-                  <Link key={ResultIndex} to={`/info/${Result.id}`} className="text-decoration-none">
+                  <Link key={ResultIndex} to={`/info/${Result.uid}`} className="text-decoration-none">
                     <li>
                       {Result.properties.name}
                     </li>

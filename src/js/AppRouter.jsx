@@ -24,11 +24,11 @@ const AppRouter = () => {
 							<Route exact path="/">
 								<Home />
 							</Route>
-							<Route exact path="/info/:id">
+							<Route exact path="/info/:uid">
 								<Info />
 							</Route>
 							<Route>
-								<h1>Not found!</h1>
+								<h1>PAGE NOT FOUND!</h1>
 							</Route>
 						</Switch>
 					</Layout>

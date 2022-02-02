@@ -36,7 +36,7 @@ export const Card = (props) => {
 
       <div className="card-body">
         <h5 className="card-title m-0 pe-1">
-          <Link to={`/info/${props.id}`} className="text-white text-decoration-none">
+          <Link to={`/info/${store.characters[props.id].uid}`} className="text-white text-decoration-none">
             {store.characters[props.id].name}
           </Link>
         </h5>

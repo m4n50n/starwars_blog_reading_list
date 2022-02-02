@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 // Components
 import { Spinner } from "../../component/Spinner/spinner.jsx";
-import { ActionButtons } from "../../component/ActionButtons/action-buttons.jsx";
 
 // Styles
 import "./info.css";
@@ -17,12 +16,7 @@ const Info = () => {
   const [Loading, setLoading] = useState(true);
 
   const params = useParams();
-
-  if (!store.characters[params.id]) { // Character ID not exists
-    return <Redirect to="/" />;
-  }
-
-  const CharacterUID = store.characters[params.id].uid;
+  const CharacterUID = params.uid;
 
   const GetCharacterInfo = async () => {
     try {
@@ -62,10 +56,6 @@ const Info = () => {
                 src={`https://starwars-visualguide.com/assets/img/characters/${store.characters_info[CharacterUID].uid}.jpg`}
                 className="description-image rounded-0 rounded-top shadow-lg"
               />
-
-              <div className="info-action-buttons gap-2">
-                <ActionButtons id={parseInt(params.id)} />
-              </div>
             </div>
             <div className="col-12 col-md-8 py-4 px-2 p-md-2">
               <h5 className="description-title d-flex align-items-center gap-3">
