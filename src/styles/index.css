@@ -31,3 +31,7 @@ h1 > span {
   background-color: #303030;
   box-shadow: 4px 4px 0px 0px #a3a3a3;
 }
+
+.btn-dark {
+  background-color: #303030;
+}

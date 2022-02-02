@@ -8,7 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       InsertCharacters: (data) => {
-        setStore({ characters: data.results });
+        setStore({ characters: data });
       },
       InsertCharacterInfo: (data) => {        
         setStore({ characters_info: {...getStore().characters_info,  [data.result.uid]: data.result } });

@@ -20,9 +20,10 @@ const Home = () => {
       setLoading(true);
       const response = await ApiGetCharacters();
       const data = await response.json();
+      console.log(data);
       actions.InsertCharacters(data);
     }
-    catch(error) {
+    catch (error) {
       console.error("ApiGetCharacters() -> Error!!!: ", error);
     }
     finally {
@@ -41,7 +42,7 @@ const Home = () => {
 
   return (
     <main className="container-fluid container-lg">
-      <div className="row my-5">
+      <div className="row my-4">
         <div className="col-12">
           <h1 className="section-title">
             <span>Characters</span>
@@ -49,11 +50,29 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="row justify-content-center gap-2 mx-2 mx-md-0 mb-5 cards-row overflow-auto">
+      <div className="cards-row-pagination">
+        <button 
+          type="button" 
+          className={`btn btn-dark shadow-sm ${!store.characters.previous ? "invisible" : ""}`}
+          onClick={() => console.log("test")}
+        >
+          <i className="fas fa-angle-left me-2"></i> Previous
+        </button>
+
+        <button 
+          type="button" 
+          className="btn btn-dark shadow-sm"
+          onClick={() => console.log("test")}
+        >
+          Next <i className="fas fa-angle-right ms-2"></i>
+        </button>
+      </div>
+
+      <div className="cards-row row justify-content-center gap-2 mx-0 mb-5">
         {
           Loading ? <Spinner />
             :
-            store.characters.map((CharacterInfo, CharactersArrayIndex) => (
+            store.characters.results.map((CharacterInfo, CharactersArrayIndex) => (
               <Card
                 key={CharactersArrayIndex}
                 id={CharactersArrayIndex}
