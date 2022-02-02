@@ -6,6 +6,7 @@
 
 ## Instructions 📄
 
+* The whole page is ***responsive***.
 * The *Home* page will show a list of characters provided by the https://www.swapi.tech/ api.
 * The user can mark as ***Like*** or ***Bookmark*** any character of the movie.
 * There will be a *Likes* and *Bookmarks* counter on the top bar.
