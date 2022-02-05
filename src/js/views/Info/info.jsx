@@ -9,7 +9,7 @@ import { Spinner } from "../../component/Spinner/spinner.jsx";
 import "./info.css";
 
 // Functions
-import { ApiGetCharacterInfo } from "../../service/api-requests";
+import { apiGetCharacterInfo } from "../../service/api-requests";
 
 const Info = () => {
   const { store, actions } = useContext(Context);
@@ -18,24 +18,24 @@ const Info = () => {
   const params = useParams();
   const CharacterUID = params.uid;
 
-  const GetCharacterInfo = async () => {
+  const getCharacterInfo = async () => {
     try {
       if (store.characters_info[CharacterUID]) { return true; } // The character information has been loaded before
 
       setLoading(true);
-      const response = await ApiGetCharacterInfo(CharacterUID);
+      const response = await apiGetCharacterInfo(CharacterUID);
       const data = await response.json();
-      actions.InsertCharacterInfo(data);
+      actions.insertCharacterInfo(data);
     }
     catch (error) {
-      console.error("ApiGetCharacterInfo() -> Error!!!: ", error);
+      console.error(error);
     }
     finally {
       setLoading(false);
     }
   }
 
-  useEffect(() => GetCharacterInfo(), []);
+  useEffect(() => getCharacterInfo(), []);
 
   return Loading ? (<Spinner />)
     :

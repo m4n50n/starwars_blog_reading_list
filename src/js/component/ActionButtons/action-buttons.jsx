@@ -14,7 +14,7 @@ export const ActionButtons = (props) => {
             <button 
                 type="button"
                 className={`btn btn-sm btn-outline-warning btn-green shadow-none ${store.bookmarks.indexOf(props.id) !== -1 ? "bookmark" : ""}`}
-                onClick={() => actions.SaveCharacter(props.id, "bookmarks")}
+                onClick={() => actions.saveCharacter(props.id, "bookmarks")}
             >
                 {store.bookmarks.indexOf(props.id) !== -1 ? (
                     <BookmarkFillIcon />
@@ -26,7 +26,7 @@ export const ActionButtons = (props) => {
             <button
                 type="button"
                 className={`btn btn-sm btn-outline-warning shadow-none ${store.likes.indexOf(props.id) !== -1 ? "like" : ""}`}
-                onClick={() => actions.SaveCharacter(props.id, "likes")}
+                onClick={() => actions.saveCharacter(props.id, "likes")}
             >
                 {store.likes.indexOf(props.id) !== -1 ? (
                     <HeartFillIcon />

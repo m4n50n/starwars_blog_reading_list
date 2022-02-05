@@ -6,35 +6,28 @@ import { Card } from "../../component/Card/card.jsx";
 import { Spinner } from "../../component/Spinner/spinner.jsx";
 
 // Functions
-import { ApiGetCharacters } from "../../service/api-requests";
+import { apiGetCharacters } from "../../service/api-requests";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
   const [Loading, setLoading] = useState(true);
 
-  const GetCharacters = async (url = false) => {
+  const getCharacters = async (url = false) => {
     try {
       setLoading(true);
-      const response = await ApiGetCharacters(url);
+      const response = await apiGetCharacters(url);
       const data = await response.json();
-      actions.InsertCharacters(data);
+      actions.insertCharacters(data);
     }
     catch (error) {
-      console.error("ApiGetCharacters() -> Error!!!: ", error);
+      console.error(error);
     }
     finally {
       setLoading(false);
     }
   }
 
-  useEffect(() => GetCharacters(), []);
-
-  // Hide zoomed image
-  window.addEventListener("mouseup", () =>
-    document.querySelector(".zoomed")
-      ? document.querySelector(".zoomed").classList.remove("zoomed")
-      : null
-  );
+  useEffect(() => getCharacters(), []);
 
   return (
     <main className="container-fluid container-lg">
@@ -63,7 +56,7 @@ const Home = () => {
         <button
           type="button"
           className={`btn btn-dark shadow-sm ${!store.next_page ? "invisible" : ""}`}
-          onClick={() => GetCharacters(store.next_page)}
+          onClick={() => getCharacters(store.next_page)}
         >
           Show More <i className="fas fa-long-arrow-alt-down ms-1"></i>
         </button>

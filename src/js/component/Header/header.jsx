@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // Components
 import { CounterButton } from "../CounterButton/counter-button.jsx";
-import { Spinner } from "../Spinner/spinner.jsx";
 
 // Styles
 import "./header.css";
@@ -11,31 +10,34 @@ import Logo from "../../../img/app/main-logo.png";
 import { SearchIcon } from "../Icons/icons.jsx";
 
 // Functions
-import { ApiSearchCharacters } from "../../service/api-requests";
+import { apiSearchCharacters } from "../../service/api-requests";
 
 export const Header = () => {
   const [SearchValue, setSearchValue] = useState("");
   const [ActiveSearch, setActiveSearch] = useState(false);
   const [SearchResults, setSearchResults] = useState([]);
 
-  const GetSearchResults = async () => {
+  // Hide search results when clicks outside of them
+  const Results = useRef(null);
+  const handleClickOutside = (event) => {
+    if (Results.current && !Results.current.contains(event.target)) {
+      setActiveSearch(false);
+    }
+  };
+
+  useEffect(() => document.addEventListener("mouseup", handleClickOutside), []);
+
+  const getSearchResults = async () => {
     try {
-      const response = await ApiSearchCharacters(SearchValue);
-      const data = await response.json();
       setActiveSearch(true);
+      const response = await apiSearchCharacters(SearchValue);
+      const data = await response.json();
       setSearchResults(data.result);
     }
     catch (error) {
-      console.error("GetSearchResults() -> Error!!!: ", error);
+      console.error(error);
     }
-    finally { }
   }
-
-  // Hide search results
-  window.addEventListener("mouseup", () => {
-    document.querySelector(".search-results").style.display = "none";
-    setActiveSearch(false);
-  });
 
   return (
     <header>
@@ -61,22 +63,18 @@ export const Header = () => {
               type="search"
               className="search-input form-control form-control-sm shadow-none"
               placeholder="Search and enter ↲"
-              onChange={(e) => {
-                const NewValue = e.target.value.trim().toLowerCase();
-                document.querySelector(".search-results").style.display = NewValue.length !== 0 ? "block" : "none";
-                setSearchValue(NewValue);
-              }}
+              onChange={(e) => setSearchValue(e.target.value.trim().toLowerCase())}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && SearchValue.length !== 0) {
-                  GetSearchResults();
+                  getSearchResults();
                 }
               }}
             />
           </div>
 
-          <ul className={`search-results rounded-bottom ${ActiveSearch ? "d-block" : "d-none"}`}>
+          <ul className={`search-results rounded-bottom ${ActiveSearch ? "d-block" : "d-none"}`} ref={Results}>
             {
-              SearchResults.length === 0
+              ActiveSearch && SearchResults.length === 0
                 ? <li>Nothing found</li>
                 : Object.values(SearchResults).map((Result, ResultIndex) =>
                   <Link key={ResultIndex} to={`/info/${Result.uid}`} className="text-decoration-none">

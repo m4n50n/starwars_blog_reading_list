@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import "./counter-button.css";
 import { BookmarkFillIcon, HeartFillIcon } from "../Icons/icons.jsx";
 
-const GetButtonElements = (type) => {
+const getButtonElements = (type) => {
   const { store, actions } = useContext(Context);
 
   return (
@@ -26,7 +26,7 @@ const GetButtonElements = (type) => {
 
                 <i
                   className="remove-dropdown-element fas fa-times"
-                  onClick={() => actions.SaveCharacter(CharacterInfo, type)}
+                  onClick={() => actions.saveCharacter(CharacterInfo, type)}
                 ></i>
               </button>
             </li>
@@ -51,7 +51,7 @@ export const CounterButton = (props) => {
         {props.type === "likes" ? <HeartFillIcon /> : props.type === "bookmarks" ? <BookmarkFillIcon /> : null} <span className="total-number">{store[[props.type]].length}</span>
       </button>
 
-      {GetButtonElements(props.type)}
+      {getButtonElements(props.type)}
     </div>
   )
 }
