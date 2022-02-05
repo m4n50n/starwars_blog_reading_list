@@ -8,7 +8,7 @@
 
 * The whole page is ***responsive***.
 * The *Home* page will show a list of characters provided by the https://www.swapi.tech/ api.
-* The user can mark as ***Like*** or ***Bookmark*** any character of the movie.
+* The user can mark as ***Like*** or ***Bookmark*** any character.
 * There will be a *Likes* and *Bookmarks* counter on the top bar.
 * The image of each character can be zoomed by clicking on the magnifying glass located in the upper right corner of it.
 * The ***Show More*** button will load more characters to the list.
